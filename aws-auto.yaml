@@ -1,0 +1,23 @@
+template_id: Full Functional Testing
+run_title: Storage Automated Full Funcational Test - aws-automation
+run_type: regression
+case_query: |
+  type:testcase AND automated AND version.KEY:4_9 AND env_iaas_cloud_provider.KEY:(aws __all__) AND env_install_method.KEY:(__all__ ipi) AND env_networking_address.KEY:(ipv4 _all_) AND subteam.KEY:(storage <subteam>) AND NOT status:inactive AND NOT subcomponent.KEY:upgrade AND NOT tags:stage_only AND NOT upstream.KEY:yes
+custom_fields:
+  caseimportance:
+  - critical
+  - high
+  - medium
+  - low
+  products: ocp
+  env_iaas_cloud_provider: AWS
+  env_networking_address: ipv4
+  tags: storage48aff
+  env_install_method: ipi
+  env_network_backend: openshift-sdn
+  version: '4_8'
+  env_cluster: ocp_cluster
+  caseautomation:
+  - automated
+  subteam: storage
+  assignee: wduan
