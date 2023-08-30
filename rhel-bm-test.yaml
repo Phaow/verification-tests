@@ -1,0 +1,71 @@
+template_id: Full Functional Testing
+run_title: Interop Layer Product Testing(Automated) - RHEL - 4.10
+run_type: regression
+case_query: >-
+    products.KEY:ocp AND version.KEY:<version> AND NOT status:inactive AND NOT
+    subteam.KEY:(svt cluster_operator nextgeninstall app_migration edge
+    openshiftjenkins) AND caseautomation.KEY:automated AND NOT upstream.KEY:yes
+    AND NOT subcomponent.KEY:upgrade AND NOT subteam.KEY:buildapi
+custom_fields:
+    assignee: pewang
+    casecomponent: ""
+    subcomponent: ""
+    plannedin: OCP_4.10_Code_Freeze
+    version: "4_10"
+    caseautomation: automated
+    build: test_build
+    caseimportance:
+        - critical
+        - high
+        - medium
+        - low
+    env_network_plugin: networkpolicy
+    env_container_runtime: crio_1x
+    env_auth: htpasswd
+    env_iaas_cloud_provider: baremetal
+    env_os: rhel_77&rhcos_43
+    env_docker_storage_driver: overlay2
+    env_install_method: upi
+    loadbalancer: ""
+    registrystorage: ""
+    env_metric_type: prometheus
+    env_multi_zones: "yes"
+    env_network_backend: openshift-sdn
+    env_cluster: ocp_cluster
+    env_fips: "no"
+    env_disconnected: "no"
+    env_behind_proxy: "no"
+    subteam:
+        - etcd
+        - networking
+        - storage
+        - ui
+        - pod
+        - asb
+        - logging_metric
+        - security
+        - master
+        - metering
+        - monitor
+        - cloud
+        - multicluster
+        - network_edge
+        - marketplace
+        - olm
+        - operator_sdk
+        - securityandcompliance
+    env_web_browser:
+        - safari91
+        - ie11
+        - edge25
+        - firefox49
+        - chrome52
+        - chrome53
+        - firefox50
+        - chrome54
+        - chrome55
+        - safari10
+        - chrome56
+        - chrome57
+    products:
+        - ocp

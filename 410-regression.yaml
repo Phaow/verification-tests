@@ -1,0 +1,20 @@
+# tools/polarshift.rb create-run -f 410-regression.yaml --no-wait
+run_title: AWS-sts-se
+run_type: regression
+case_query: |
+  products.KEY:ocp AND version.KEY:<version> AND env_iaas_cloud_provider.KEY:(<env_iaas_cloud_provider> __all__) AND env_install_method.KEY:(__all__ <env_install_method>) AND status:(draft proposed needsupdate approved) AND env_os.KEY:(__all__ <env_os>) AND caseautomation.KEY:automated AND NOT subteam.KEY:(svt  nextgeninstall app_migration edge openshiftjenkins rhv multcluster windowsontainers  Multi\\-Cluster\\-Networking ota kni buildapi) AND NOT upstream.KEY:yes AND NOT env_network_backend.KEY:ovn AND NOT env_disconnected.KEY:yes AND NOT env_behind_proxy.KEY:(http_proxy https_proxy) AND NOT subcomponent.KEY:(upgrade cloudcontrollermanager) AND NOT casecomponent.KEY:(hive cloudcredentialoperator) AND NOT env_enable_fips.KEY:yes AND NOT env_network_plugin.KEY:(subnet multitenant) AND NOT env_networking_address.KEY:(ipv6singlestack ipv6dualstack) AND ((NOT tags:(destructive out_of_payload)) OR (tags:destructive AND caseimportance.KEY:critical))
+custom_fields:
+  caseimportance:
+  - critical
+  - high
+  products: ocp
+  version: '4_10'
+  env_os: __all__
+  env_iaas_cloud_provider: AWS
+  env_networking_address: ipv4
+  env_install_method: ipi
+  env_network_backend: openshift-sdn
+  caseautomation:
+  - automated
+  plannedin: OCP_4_10_Feature_Freeze
+  assignee: wduan
