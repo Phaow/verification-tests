@@ -161,7 +161,13 @@ When /^admin creates a PV from "([^"]*)" where:$/ do |location, table|
   end
 
   table.raw.each do |path, value|
-    eval "pv_hash#{path} = YAML.load value" unless path == ''
+    if value.include?(']:')
+      eval "pv_hash#{path} = value" unless path == ''
+    else
+      eval "pv_hash#{path} = YAML.load value" unless path == ''
+    end
+
+    # eval "pv_hash#{path} = YAML.load value" unless path == ''
     # e.g. pv_hash["spec"]["nfs"]["server"] = 10.10.10.10
   end
 
