@@ -544,6 +544,7 @@ Given /^I have a iSCSI setup in the environment$/ do
   if cb.iscsi_ip.include?(':')
     cb.iscsi_ip = "[#{cb.iscsi_ip}]"
   end
+  logger.info "aaa -> #{cb.iscsi_ip}" 
   
 end
 
