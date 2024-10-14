@@ -542,7 +542,7 @@ Given /^I have a iSCSI setup in the environment$/ do
     
   # The cb.iscsi_ip will be used for the static pv definition with port for ipv6 address with port needs add '[]' to meet the ipv6 standard
   if cb.iscsi_ip.include?(':')
-    cb.iscsi_ip = "[#{cb.iscsi_ip}]"
+    cb.iscsi_ip = "\[#{cb.iscsi_ip}\]"
   end
   logger.info "aaa -> #{cb.iscsi_ip}" 
   
